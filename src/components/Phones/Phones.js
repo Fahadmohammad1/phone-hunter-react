@@ -1,9 +1,13 @@
 import React from "react";
+import { ShoppingCartIcon } from "@heroicons/react/solid";
+import { useNavigate } from "react-router-dom";
 
 const Phones = ({ phone }) => {
-  const { phone_name, brand, image } = phone;
+  const { phone_name, image, slug } = phone;
+  const nevigate = useNavigate();
+
   return (
-    <div className="mx-auto">
+    <div className="mx-auto px-4 md:px-0">
       <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mt-5">
         <div>
           <img className="p-8 rounded-t-lg mx-auto" src={image} alt="product" />
@@ -60,14 +64,20 @@ const Phones = ({ phone }) => {
             </span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-1xl font-bold text-gray-900 dark:text-white">
-              {brand}
-            </span>
+            <button
+              onClick={() => {
+                nevigate(`/shop/${slug}`);
+              }}
+              type="button"
+              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-4 py-2 text-center mr-1 mb-1 flex"
+            >
+              Details
+            </button>
             <button
               type="button"
-              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-4 py-2 text-center mr-1 mb-1"
+              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-4 py-2 text-center mr-1 mb-1 flex"
             >
-              Add to Cart
+              Add <ShoppingCartIcon className="ml-1 h-5 w-5 " />
             </button>
           </div>
         </div>
