@@ -11,7 +11,7 @@ const PhoneContext = createContext();
 function App() {
   return (
     <PhoneContext.Provider value={"abc"}>
-      <div>
+      <div className="bg-indigo-50">
         <Header></Header>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
