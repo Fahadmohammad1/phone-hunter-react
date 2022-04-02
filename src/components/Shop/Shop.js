@@ -8,12 +8,12 @@ const Shop = () => {
   const getSearchText = (e) => {
     setSearchText(e.target.value);
   };
+
   const searchPhone = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPhones(data.data));
-    setSearchText(" ");
   };
 
   return (
